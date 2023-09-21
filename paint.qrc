@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="images">
+    <file>images/artboard.png</file>
+    <file>images/Download.png</file>
+    <file>images/erase.ico</file>
+    <file>images/paint brush.png</file>
+    <file>images/pngtree eraser.png</file>
+  </qresource>
+</RCC>

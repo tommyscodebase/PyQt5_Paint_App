@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Paint</class>
+ <widget class="QMainWindow" name="Paint">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>589</width>
+    <height>495</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Paint App</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="paint.qrc">
+    <normaloff>:/images/images/artboard.png</normaloff>:/images/images/artboard.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QFrame" name="canvas_frame">
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>589</width>
+     <height>27</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionSave"/>
+   <addaction name="separator"/>
+   <addaction name="actionBrush"/>
+   <addaction name="separator"/>
+   <addaction name="actionErase"/>
+   <addaction name="separator"/>
+   <addaction name="actionClear"/>
+   <addaction name="separator"/>
+  </widget>
+  <action name="actionBrush">
+   <property name="icon">
+    <iconset resource="paint.qrc">
+     <normaloff>:/images/images/paint brush.png</normaloff>:/images/images/paint brush.png</iconset>
+   </property>
+   <property name="text">
+    <string>Brush</string>
+   </property>
+   <property name="toolTip">
+    <string>Brush</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="paint.qrc">
+     <normaloff>:/images/images/Download.png</normaloff>:/images/images/Download.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="toolTip">
+    <string>Save image</string>
+   </property>
+  </action>
+  <action name="actionErase">
+   <property name="icon">
+    <iconset resource="paint.qrc">
+     <normaloff>:/images/images/pngtree eraser.png</normaloff>:/images/images/pngtree eraser.png</iconset>
+   </property>
+   <property name="text">
+    <string>Erase</string>
+   </property>
+   <property name="toolTip">
+    <string>Eraser</string>
+   </property>
+  </action>
+  <action name="actionClear">
+   <property name="icon">
+    <iconset resource="paint.qrc">
+     <normaloff>:/images/images/erase.ico</normaloff>:/images/images/erase.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Clear</string>
+   </property>
+   <property name="toolTip">
+    <string>Clear the canvas</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="paint.qrc"/>
+ </resources>
+ <connections/>
+</ui>
