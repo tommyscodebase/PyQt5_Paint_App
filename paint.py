@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from canvas import Canvas
 
 
 class Ui_Paint(object):
@@ -20,6 +21,13 @@ class Ui_Paint(object):
         self.canvas_frame.setFrameShadow(QtWidgets.QFrame.Plain)
         self.canvas_frame.setObjectName("canvas_frame")
         self.verticalLayout.addWidget(self.canvas_frame)
+
+        # Canvas
+        self.canvas_layout = QtWidgets.QVBoxLayout(self.canvas_frame)
+
+        self.canvas = Canvas(self)
+        self.canvas_layout.addWidget(self.canvas)
+
         Paint.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(Paint)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 589, 27))
@@ -47,20 +55,47 @@ class Ui_Paint(object):
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap(":/images/images/pngtree eraser.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionErase.setIcon(icon3)
+        self.actionErase.setCheckable(True)
         self.actionErase.setObjectName("actionErase")
         self.actionClear = QtWidgets.QAction(Paint)
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap(":/images/images/erase.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionClear.setIcon(icon4)
         self.actionClear.setObjectName("actionClear")
+
+        # Additions
+        self.eraser_size = QtWidgets.QSpinBox(self)
+        self.eraser_size.setValue(5)
+        self.eraser_size.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+
+        self.brush_size = QtWidgets.QSpinBox(self)
+        self.brush_size.setValue(5)
+        self.brush_size.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+
+        self.colour_label = QtWidgets.QLabel(self)
+        self.colour_label.setText('Current Color:')
+        self.current_color = QtWidgets.QPushButton(self)
+        self.current_color.setMinimumSize(QtCore.QSize(32, 32))
+        self.current_color.setMaximumSize(QtCore.QSize(32, 32))
+        self.current_color.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.current_color.setStyleSheet("background-color: rgb(0, 0, 0);")
+
+        self.current_color_label = QtWidgets.QLabel(self)
+        self.current_color_label.setText("#000000")
+
         self.toolBar.addAction(self.actionSave)
         self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionBrush)
+        self.toolBar.addWidget(self.brush_size)
         self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionErase)
+        self.toolBar.addWidget(self.eraser_size)
         self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionClear)
         self.toolBar.addSeparator()
+        self.toolBar.addWidget(self.colour_label)
+        self.toolBar.addWidget(self.current_color)
+        self.toolBar.addWidget(self.current_color_label)
 
         self.retranslateUi(Paint)
         QtCore.QMetaObject.connectSlotsByName(Paint)
